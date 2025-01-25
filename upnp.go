@@ -49,6 +49,7 @@ import (
 	"time"
 
 	"github.com/anacrolix/log"
+	"github.com/wlynxg/anet"
 )
 
 var (
@@ -84,7 +85,7 @@ func Discover(renewal, timeout time.Duration, logger log.Logger) []Device {
 
 	var results []Device
 
-	interfaces, err := net.Interfaces()
+	interfaces, err := anet.Interfaces()
 	if err != nil {
 		log.Errorf("Listing network interfaces: %s", err)
 		return results
